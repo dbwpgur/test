@@ -23,10 +23,10 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, Integer num, Integer num2 ,Integer res) {
+	public String home(Locale locale, Model model, Integer num, Integer num2, Integer res) {
 		model.addAttribute("num", num);
 		model.addAttribute("num2", num2);
-		
+
 		model.addAttribute("res", res);
 
 		return "home";
@@ -53,5 +53,33 @@ public class HomeController {
 		model.addAttribute("num2", num2);
 		model.addAttribute("res", res);
 		return "redirect:/";
+
+	}
+
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public String signupGet() {
+		
+		return "member/signup";
+
+	}
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public String signupPost(String id,String pw, String pwconfirm, String email, String gender) {
+		System.out.println("id: "+id);
+		System.out.println("pw: "+pw);
+		System.out.println("pwconfirm: "+pwconfirm);
+		System.out.println("email: "+email);
+		System.out.println("gender: "+gender);
+		return "redirect:/signup";
+		}
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginGet(String id,String pw) {
+		
+	return "member/login";
+	}
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String loginPost(String id,String pw) {
+		System.out.println("id: "+id);
+		System.out.println("pw: "+pw);	
+	return "redirect:login";
 	}
 }
