@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        box-sizing:border-box; 
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        
+    }
+    /*부모 자식 셀렉터 :
+      직접 자손에만 스타일 적용
+      한번 건너뛰면 적용이 안된다*/
+    body>.div1{
+        color: red;
+    }
+    div>.div1{
+        color: burlywood;
+    }
+    /*부모 자손 셀렉터 :
+      body안에(부모아래에) 있는 div2(자손)전부 바뀜*/
+    body .div2{
+        color: blue;
+    }
+    /*CSS는 뒤에 나오는 구문이 마지막으로 적용되므로
+      우선순위가 높다.(최종 적용은 마지막구문)*/
+    div.div2{
+        color: yellow;
+    }
+    input[type=text]{
+        font-weight: bold;
+    }
+    input[readonly]{
+        color: gray;
+        background-color : yellow;
+    }
+    .div3:hover{
+        color:red;
+        font-weight: bold;
+        cursor: pointer; 
+    }
+    </style>
+</head>
+<body>
+    <div>부모 자식 셀렉터 조합 예제</div>
+    <div class="div1">Hello world</div>
+    <div>
+        <div class="div1">Hello world</div>
+    </div>
+    <div class="div1">Hello world</div>
+    <hr>
+    <div>부모 자손 셀렉터 조합 예제</div>
+    <div class="div2">Hi</div>
+    <div>
+        <div class="div2">Hi</div>
+    </div>
+    <hr>
+    <div>속성 셀렉터 예제</div>
+    <input type="text">
+    <input type="email" readonly value="123@123">
+    <hr>
+    <div>가상 클래스 예제  </div>
+    <div class="div3">Hello world</div>
+</body>
+</html>
